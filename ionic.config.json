@@ -1,5 +1,7 @@
 {
-  "name": "myApp",
-  "integrations": {},
-  "type": "angular"
+  "name": "miApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
 }
