@@ -1,16 +1,33 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
-
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { AppRoutingModule } from './app-routing.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { SearchBarComponent } from './search-bar.component';
+import { PictogramButtonComponent } from './pictogram-button.component';
+import { ArasaacService } from './services/arasaac.service';
+import { TextToSpeechService } from './services/speech.service';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    SearchBarComponent,
+    PictogramButtonComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    IonicModule.forRoot(),
+    AppRoutingModule
+  ],
+  providers: [
+    ArasaacService,
+    TextToSpeechService,
+    provideHttpClient(withInterceptorsFromDi())
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

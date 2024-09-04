@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  pictogramImages: string[] = [
+    'comer',
+    'beber',
+    'baño',
+    'ayuda',
+    'si',
+    'no',
+    'jugar',
+    'dolor',
+    'dormir',
+    'saludar'
+  ];
 }

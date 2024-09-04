@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ArasaacService } from './services/arasaac.service';
 import { TextToSpeechService } from './services/speech.service';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  selector: 'app-pictogram-button',
+  templateUrl: './pictogram-button.component.html',
+  styleUrls: ['./pictogram-button.component.scss']
 })
-export class SearchBarComponent {
-  searchText: string = '';
+export class PictogramButtonComponent implements OnInit {
+  @Input() image: string = '';
   imageSrc: string | null = null;
 
   constructor(
@@ -17,22 +17,29 @@ export class SearchBarComponent {
     private textToSpeechService: TextToSpeechService
   ) {}
 
-  async handleSearch() {
-    if (this.searchText.trim() === '') {
+  ngOnInit() {
+    this.loadPictogram();
+  }
+
+  async loadPictogram() {
+    if (this.image.trim() === '') {
       this.imageSrc = null;
       return;
     }
     try {
-      const id = await firstValueFrom(this.arasaacService.getPictogramId(this.searchText));
+      const id = await firstValueFrom(this.arasaacService.getPictogramId(this.image));
       console.log('Pictogram ID:', id); // Log the ID
       if (id !== undefined) {
         this.imageSrc = await firstValueFrom(this.arasaacService.getPictogramImage(id));
-        this.textToSpeechService.speak(this.searchText);
       } else {
         console.error('No pictogram ID returned');
       }
     } catch (error) {
       console.error('Error during search:', error);
     }
+  }
+
+  speak() {
+    this.textToSpeechService.speak(this.image);
   }
 }
