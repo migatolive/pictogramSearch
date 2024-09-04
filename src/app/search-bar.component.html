@@ -1,3 +1,11 @@
-<ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
-<ion-button (click)="handleSearch()">Search</ion-button>
+<ion-list>
+  <ion-item>
+    <ion-input [(ngModel)]="searchText" labelPlacement="stacked" placeholder="Buscar pictograma..">
+      <ion-button (click)="handleSearch()" fill="clear" slot="end" aria-label="Buscar">
+        <ion-icon slot="icon-only" name="search-outline" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-input>
+  </ion-item>
+</ion-list>
+
 <img *ngIf="imageSrc" [src]="imageSrc" alt="Pictogram">

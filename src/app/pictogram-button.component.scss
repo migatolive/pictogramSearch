@@ -1,0 +1,59 @@
+ion-button {
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --padding-top: 1%; /* Use percentage for padding */
+  --padding-bottom: 1%; /* Use percentage for padding */
+  --padding-start: 5%; /* Use percentage for padding */
+  --padding-end: 5%; /* Use percentage for padding */
+  width: 100%;
+  max-width: 200px; /* Adjust width for responsiveness */
+  height: auto;
+  transition: box-shadow 0.3s ease;
+  position: relative; /* Ensure relative positioning */
+  overflow: hidden; /* Prevent ripple overflow */
+}
+
+ion-button:hover {
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ion-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+ion-card img {
+  width: 100%;
+  height: auto;
+}
+
+ion-card-header {
+  padding-left: 5%; /* Use percentage for padding */
+  padding-top: 1%; /* Use percentage for padding */
+}
+
+ion-card-title {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 576px) {
+  ion-button {
+    max-width: 120px; /* Further adjust width for small screens */
+  }
+
+  ion-card {
+    border-radius: 5px; /* Adjust border radius for small screens */
+  }
+
+  ion-card-header {
+    padding-left: 2%; /* Adjust percentage for small screens */
+    padding-top: 0.5%; /* Adjust percentage for small screens */
+  }
+
+  ion-card-title {
+    font-size: 10px; /* Further adjust font size */
+  }
+}

@@ -1,3 +1,4 @@
+<!-- HTML (app.component.html) -->
 <ion-app>
   <ion-header>
     <ion-toolbar>
@@ -7,10 +8,12 @@
   <ion-content>
     <ion-grid>
       <ion-row class="wrap-row">
-        <ion-col *ngFor="let image of pictogramImages" size="12" size-md="6" size-lg="4" size-xl="3">
+        <ion-col *ngFor="let image of pictogramImages" size="12" size-md="6" size-lg="4" size-xl="3" class="card-col">
           <app-pictogram-button [image]="image"></app-pictogram-button>
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <app-search-bar></app-search-bar>
   </ion-content>
 </ion-app>

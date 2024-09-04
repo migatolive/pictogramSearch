@@ -1,4 +1,8 @@
-<ion-button (click)="speak()">
-  <img *ngIf="imageSrc" [src]="imageSrc" alt="Pictogram">
-  <span>{{ image }}</span>
+<ion-button fill="clear" (click)="speak()" class="ion-activatable">
+  <ion-card>
+    <img *ngIf="imageSrc" [src]="imageSrc" alt="Pictogram">
+    <ion-card-header>
+      <ion-card-title>{{ image }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 </ion-button>

@@ -16,6 +16,8 @@ export class AppComponent {
     'jugar',
     'dolor',
     'dormir',
-    'saludar'
+    'saludar',
+    'medicina',
+    'buscar'
   ];
 }

@@ -1,5 +1,62 @@
 .wrap-row {
   display: flex;
-  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  justify-content: space-between; /* Ensure cards are spaced evenly */
+  --ion-grid-column-padding: 0; /* Remove padding between columns */
+}
+
+.card-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5%; /* Use percentage for padding */
+  padding-top: 1%; /* Use percentage for padding */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+ion-card {
+  width: calc(100% - 10%); /* Adjust width to account for padding */
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+ion-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+app-pictogram-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+app-pictogram-button img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 576px) {
+  .card-col {
+    padding-left: 2%; /* Adjust percentage for small screens */
+    padding-top: 0.5%; /* Adjust percentage for small screens */
+  }
+
+  ion-card {
+    border-radius: 5px; /* Adjust border radius for small screens */
+  }
+
+  ion-card-header {
+    padding-left: 2%; /* Adjust percentage for small screens */
+    padding-top: 0.5%; /* Adjust percentage for small screens */
+  }
+
+  ion-card-title {
+    font-size: 12px; /* Adjust font size */
+  }
 }
